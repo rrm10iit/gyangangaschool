@@ -1,9 +1,16 @@
 import video1 from "../assets/video1.mp4";
 import video2 from "../assets/video2.mp4";
+import logo from "../assets/logo.jpg"; // or logo.png based on your file
+
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col items-center mt-6 lg:mt-20">
+    <div className="flex flex-col items-center mt-0 lg:mt-4">
+
+      <img
+        src={logo}
+        className="w-44 h-44 rounded-full object-cover border-4 mb-6 shadow-md"
+      />
       <h1 className="text-4xl sm:text-6xl lg:text-7xl text-center tracking-wide">
         Gyan Ganga School
         <span className="bg-gradient-to-r from-orange-500 to-red-800 text-transparent bg-clip-text">
