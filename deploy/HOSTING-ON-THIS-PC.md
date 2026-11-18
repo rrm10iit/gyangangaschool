@@ -23,12 +23,12 @@ If you ever move it elsewhere, add it again under **Add a domain** and change th
 2. Go to **Networks, Tunnels** and click **Create a tunnel**. Choose **Cloudflared**, name it `gyanganga-pc`, **Save**.
 3. When it asks you to install the connector, choose **Docker**. It shows a command containing `--token` followed by a
    very long text. **Copy only that long token.** Treat it like a password: anyone with it can run your tunnel.
-4. Click **Next** and add a **Public hostname** (do this twice):
+4. Open the tunnel, then the **Routes** tab, and add a **published application route** (do this twice):
 
    | Subdomain | Domain | Service type | URL |
    | --- | --- | --- | --- |
-   | *(leave empty)* | gyangangaschool.bid | HTTP | `proxy:80` |
-   | `www` | gyangangaschool.bid | HTTP | `proxy:80` |
+   | *(leave empty)* | gyangangaschool.bid | HTTP | `http://proxy:80` (some forms want just `proxy:80`) |
+   | `www` | gyangangaschool.bid | HTTP | `http://proxy:80` |
 
    Cloudflare creates the DNS records for you. Do not install anything else it suggests; the project starts the
    connector for you.
