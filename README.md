@@ -82,6 +82,12 @@ already started with `true` (the simplest way on a fresh install is `docker comp
 
 Only the proxy is exposed to the internet. The database and the API are reachable only inside the Docker network.
 
+## Host it from your own PC (no server needed)
+
+To serve the site on your own domain from a Windows PC through a free Cloudflare Tunnel, with the admin area locked
+behind an email code, follow [deploy/HOSTING-ON-THIS-PC.md](deploy/HOSTING-ON-THIS-PC.md). It uses
+`docker-compose.tunnel.yml` on top of the normal compose file.
+
 ## Email with Brevo
 
 1. In Brevo, create an API key (SMTP & API, API keys) and verify the sender address.

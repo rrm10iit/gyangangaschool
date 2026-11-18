@@ -1,0 +1,22 @@
+# Adds a Cloudflare Tunnel so the site is reachable on your own domain from this PC,
+# without opening any port on your router.
+#
+# Use together with the main file:
+#   docker compose -f docker-compose.yml -f docker-compose.tunnel.yml up -d --build
+# Setup guide: deploy/HOSTING-ON-THIS-PC.md
+
+services:
+  # Only this PC can reach the proxy directly; everyone else comes through the tunnel.
+  proxy:
+    ports: !override
+      - "127.0.0.1:${HTTP_PORT:-80}:80"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN:?Set TUNNEL_TOKEN in .env (see deploy/HOSTING-ON-THIS-PC.md)}
+    depends_on:
+      - proxy
+    networks: [internal]
