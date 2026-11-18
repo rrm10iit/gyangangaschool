@@ -1,0 +1,27 @@
+# Reverse proxy with automatic HTTPS.
+# SITE_ADDRESS=:80 serves plain HTTP (local testing).
+# SITE_ADDRESS=school.example.com gets a free Let's Encrypt certificate automatically.
+{$SITE_ADDRESS::80} {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	# API and uploaded files go straight to the Java backend.
+	@backend path /api/* /uploads/*
+	handle @backend {
+		request_body {
+			max_size 60MB
+		}
+		reverse_proxy backend:8080
+	}
+
+	# Everything else is the Next.js website.
+	handle {
+		reverse_proxy frontend:3000
+	}
+}

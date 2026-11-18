@@ -1,0 +1,59 @@
+server:
+  port: 8080
+  forward-headers-strategy: native
+  shutdown: graceful
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+  tomcat:
+    max-swallow-size: 60MB
+
+spring:
+  application:
+    name: gyanganga-school
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/gyanganga}
+    username: ${DB_USER:gyanganga}
+    password: ${DB_PASSWORD:gyanganga}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 60MB
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      fail-on-unknown-properties: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+app:
+  jwt-secret: ${JWT_SECRET:}
+  jwt-expiry-hours: ${JWT_EXPIRY_HOURS:8}
+  cookie-secure: ${COOKIE_SECURE:false}
+  upload-dir: ${UPLOAD_DIR:./data}
+  admin-email: ${ADMIN_EMAIL:admin@gyanganga.school}
+  admin-password: ${ADMIN_PASSWORD:}
+  seed-demo-data: ${SEED_DEMO_DATA:false}
+  public-url: ${PUBLIC_URL:http://localhost:3000}
+  brevo:
+    api-key: ${BREVO_API_KEY:}
+    sender-email: ${BREVO_SENDER_EMAIL:}
+    sender-name: ${BREVO_SENDER_NAME:Gyan Ganga School}
+    notify-email: ${ENQUIRY_NOTIFY_EMAIL:}
