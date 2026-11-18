@@ -12,6 +12,7 @@ public record AppProps(
         String adminPassword,
         boolean seedDemoData,
         String publicUrl,
+        int enquiryRateLimit,
         Brevo brevo) {
 
     public record Brevo(String apiKey, String senderEmail, String senderName, String notifyEmail) {}

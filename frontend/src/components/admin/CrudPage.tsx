@@ -171,7 +171,7 @@ export default function CrudPage<T extends { id: number }>(props: CrudProps<T>) 
         </div>
       )}
 
-      <div className="card overflow-x-auto">
+      <div className="card relative overflow-x-auto">
         <table className="w-full min-w-[640px] text-left text-sm">
           <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wider text-slate-500 dark:border-navy-800 dark:bg-navy-800/50 dark:text-slate-400">
             <tr>

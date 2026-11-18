@@ -128,6 +128,34 @@ npm install
 BACKEND_URL=http://localhost:8080 npm run dev
 ```
 
+## Tests
+
+Three layers. All of them run automatically on every push through GitHub Actions (`.github/workflows/ci.yml`).
+
+| Layer | What it checks | How to run | Needs |
+| --- | --- | --- | --- |
+| Backend unit tests (`*Test`) | Fee calculation (monthly, quarterly, yearly heads, April to March year), amount in words on receipts, login rate limiter | `cd backend && mvn test` | Java 21 |
+| Backend integration tests (`*IT`) | The real API against a real PostgreSQL: login and lockout, who may call which URL (a table of role by URL), student and teacher rules, fee ledger, dues, receipts, salaries, reports and Excel/PDF exports, enquiry spam protection, public content visibility, image and document uploads | `cd backend && mvn verify` | Java 21 and Docker |
+| Browser tests (`e2e/`) | Every public and admin page, the language and dark mode toggles, the enquiry form, the gallery lightbox, phone layouts, accessibility (axe, light and dark), complete admin workflows, Teacher and Accountant restrictions, security headers | see below | Docker, Node 22 |
+
+Browser tests run against a started stack with sample data:
+
+```
+# .env: SEED_DEMO_DATA=true, ENQUIRY_RATE_LIMIT=1000, and an ADMIN_PASSWORD you choose
+docker compose up -d --build
+cd e2e
+npm install
+npx playwright install chromium        # or set E2E_CHANNEL=msedge / chrome to use a browser you already have
+E2E_BASE_URL=http://localhost E2E_ADMIN_PASSWORD=<your admin password> npx playwright test
+```
+
+`ENQUIRY_RATE_LIMIT` is 5 per hour per address in normal use. Raise it only in a test stack, otherwise repeated test
+runs hit the spam limit. The tests create their own records (names start with "E2E") and remove most of them again.
+Do not run the browser tests against the live school site.
+
+On Docker 29 or newer, Testcontainers needs the Docker API version set. The backend `pom.xml` already passes
+`api.version=1.44` to the integration tests, so no extra setup is needed.
+
 ## Things to update after the first start
 
 Sign in and open **Admin, Page content**. These values are placeholders taken from the old site or guessed:

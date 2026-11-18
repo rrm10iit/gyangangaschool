@@ -33,7 +33,7 @@ export default function LoginPage() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/logo-192.png" alt="Gyan Ganga School" width={80} height={80} className="h-20 w-20 rounded-full" />
           <h1 className="mt-4 text-2xl font-bold">Staff sign in</h1>
-          <p className="mt-1 text-sm text-slate-500">Gyan Ganga School administration</p>
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-300">Gyan Ganga School administration</p>
         </div>
         <form onSubmit={submit} className="mt-6 space-y-4">
           {error && <p role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-700 dark:bg-red-900/20 dark:text-red-200">{error}</p>}

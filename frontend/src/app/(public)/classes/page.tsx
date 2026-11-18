@@ -29,7 +29,7 @@ export default async function ClassesPage() {
                 <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{pick(lang, c.description, c.descriptionHi)}</p>
                 {c.subjects && (
                   <div className="mt-4">
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500">{t('classes.subjects')}</h3>
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('classes.subjects')}</h3>
                     <ul className="mt-2 flex flex-wrap gap-2">
                       {c.subjects.split(',').map((x) => (
                         <li key={x} className="rounded-md bg-gold-50 px-2 py-1 text-xs text-gold-900 dark:bg-gold-500/10 dark:text-gold-200">{x.trim()}</li>

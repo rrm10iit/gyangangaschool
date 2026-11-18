@@ -52,6 +52,8 @@ app:
   admin-password: ${ADMIN_PASSWORD:}
   seed-demo-data: ${SEED_DEMO_DATA:false}
   public-url: ${PUBLIC_URL:http://localhost:3000}
+  # enquiries allowed per hour from one address (raise it only for automated tests)
+  enquiry-rate-limit: ${ENQUIRY_RATE_LIMIT:5}
   brevo:
     api-key: ${BREVO_API_KEY:}
     sender-email: ${BREVO_SENDER_EMAIL:}

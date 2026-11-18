@@ -29,10 +29,10 @@ export default async function AboutPage() {
           <aside className="card h-fit p-6" aria-label={t('about.facts')}>
             <h3 className="text-lg font-semibold">{t('about.facts')}</h3>
             <dl className="mt-4 space-y-3 text-sm">
-              <div><dt className="text-slate-500">{t('about.board')}</dt><dd className="font-semibold">{s('school.board')}</dd></div>
-              <div><dt className="text-slate-500">{t('about.medium')}</dt><dd className="font-semibold">{s('school.medium')}</dd></div>
-              <div><dt className="text-slate-500">{t('about.classes')}</dt><dd className="font-semibold">{t('about.classesValue')}</dd></div>
-              <div><dt className="text-slate-500">{t('home.stats.students')}</dt><dd className="font-semibold">{site.stats.students}</dd></div>
+              <div><dt className="text-slate-500 dark:text-slate-400">{t('about.board')}</dt><dd className="font-semibold">{s('school.board')}</dd></div>
+              <div><dt className="text-slate-500 dark:text-slate-400">{t('about.medium')}</dt><dd className="font-semibold">{s('school.medium')}</dd></div>
+              <div><dt className="text-slate-500 dark:text-slate-400">{t('about.classes')}</dt><dd className="font-semibold">{t('about.classesValue')}</dd></div>
+              <div><dt className="text-slate-500 dark:text-slate-400">{t('home.stats.students')}</dt><dd className="font-semibold">{site.stats.students}</dd></div>
             </dl>
           </aside>
         </div>

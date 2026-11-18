@@ -165,7 +165,7 @@ public class PublicController {
     public Map<String, String> enquire(@Valid @RequestBody EnquiryRequest req, HttpServletRequest http) {
         // Honeypot: real visitors never fill this hidden field. Pretend success to bots.
         if (req.website() != null && !req.website().isBlank()) return Map.of("status", "ok");
-        if (!limiter.tryAcquire("enquiry:" + http.getRemoteAddr(), 5, Duration.ofHours(1))) {
+        if (!limiter.tryAcquire("enquiry:" + http.getRemoteAddr(), props.enquiryRateLimit(), Duration.ofHours(1))) {
             throw new ResponseStatusException(HttpStatus.TOO_MANY_REQUESTS,
                     "Too many enquiries from your connection. Please call the school office instead.");
         }

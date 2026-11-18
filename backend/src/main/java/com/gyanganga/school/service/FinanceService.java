@@ -53,9 +53,9 @@ public class FinanceService {
         return Math.max(0, Math.min(12, m));
     }
 
-    private record ClassFees(BigDecimal total, BigDecimal dueToDate) {}
+    record ClassFees(BigDecimal total, BigDecimal dueToDate) {}
 
-    private static ClassFees feesFor(List<FeeStructure> heads, int months) {
+    static ClassFees feesFor(List<FeeStructure> heads, int months) {
         BigDecimal total = BigDecimal.ZERO;
         BigDecimal due = BigDecimal.ZERO;
         int quarters = (months + 2) / 3;

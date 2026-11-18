@@ -79,7 +79,7 @@ export default function DuesPage() {
         <label className="flex items-center gap-2 pb-2 text-sm"><input type="checkbox" checked={overdueOnly} onChange={(e) => setOverdueOnly(e.target.checked)} /> Overdue only</label>
       </div>
 
-      <div className="card overflow-x-auto">
+      <div className="card relative overflow-x-auto">
         <table className="w-full min-w-[720px] text-left text-sm">
           <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wider text-slate-500 dark:border-navy-800 dark:bg-navy-800/50">
             <tr>

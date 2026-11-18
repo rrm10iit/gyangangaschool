@@ -39,6 +39,16 @@ public class ApiExceptionHandler {
         return body(HttpStatus.BAD_REQUEST, "Invalid request", null);
     }
 
+    @ExceptionHandler(org.springframework.web.servlet.resource.NoResourceFoundException.class)
+    ResponseEntity<Map<String, Object>> notFound(Exception e) {
+        return body(HttpStatus.NOT_FOUND, "Not found", null);
+    }
+
+    @ExceptionHandler(org.springframework.web.HttpMediaTypeNotSupportedException.class)
+    ResponseEntity<Map<String, Object>> mediaType(Exception e) {
+        return body(HttpStatus.UNSUPPORTED_MEDIA_TYPE, "Unsupported content type", null);
+    }
+
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     ResponseEntity<Map<String, Object>> method(HttpRequestMethodNotSupportedException e) {
         return body(HttpStatus.METHOD_NOT_ALLOWED, "Method not allowed", null);
