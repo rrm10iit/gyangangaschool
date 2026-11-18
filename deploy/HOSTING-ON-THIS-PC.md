@@ -1,6 +1,6 @@
 # Host the school website from this PC with Cloudflare
 
-Result: **https://gyangangaschool.bidnow** shows the public website. Visitors need nothing installed.
+Result: **https://gyangangaschool.bid** shows the public website. Visitors need nothing installed.
 The admin panel (`/admin`) asks for an email code from Cloudflare first, then the normal admin password.
 No router settings are changed and no port is opened to the internet.
 
@@ -11,15 +11,10 @@ Visitor / admin browser -> Cloudflare -> tunnel (started from this PC) -> Docker
 Cost: the domain only. Cloudflare Tunnel and Cloudflare Access (up to 50 people) are free.
 When the PC is off, the site is down. Nothing is lost.
 
-## Part A. Put the domain on Cloudflare (once)
+## Part A. The domain (already done)
 
-1. Create a free account at <https://dash.cloudflare.com/sign-up>.
-2. Click **Add a domain**, type `gyangangaschool.bidnow`, choose the **Free** plan.
-   If Cloudflare says it does not support this domain ending, stop and tell me.
-3. Cloudflare shows **two nameservers** (for example `xxxx.ns.cloudflare.com`). Open the website where you bought the
-   domain, find **Nameservers** (sometimes under DNS settings), choose custom nameservers and enter those two.
-   Remove the old ones. If you bought the domain from Cloudflare, skip this step.
-4. Wait until Cloudflare shows the domain as **Active**. This takes a few minutes, sometimes a few hours.
+You bought **gyangangaschool.bid** from Cloudflare, so it is already on Cloudflare with Cloudflare nameservers. Nothing to do here.
+If you ever move it elsewhere, add it again under **Add a domain** and change the nameservers at the new registrar.
 
 ## Part B. Create the tunnel (once)
 
@@ -32,8 +27,8 @@ When the PC is off, the site is down. Nothing is lost.
 
    | Subdomain | Domain | Service type | URL |
    | --- | --- | --- | --- |
-   | *(leave empty)* | gyangangaschool.bidnow | HTTP | `proxy:80` |
-   | `www` | gyangangaschool.bidnow | HTTP | `proxy:80` |
+   | *(leave empty)* | gyangangaschool.bid | HTTP | `proxy:80` |
+   | `www` | gyangangaschool.bid | HTTP | `proxy:80` |
 
    Cloudflare creates the DNS records for you. Do not install anything else it suggests; the project starts the
    connector for you.
@@ -60,7 +55,7 @@ When the PC is off, the site is down. Nothing is lost.
    ADMIN_PASSWORD=<a strong password you will remember>
    SEED_DEMO_DATA=false
    SITE_ADDRESS=:80
-   PUBLIC_URL=https://gyangangaschool.bidnow
+   PUBLIC_URL=https://gyangangaschool.bid
    COOKIE_SECURE=true
    HTTP_PORT=8088
    TUNNEL_TOKEN=<the long token from Part B step 3>
@@ -85,12 +80,12 @@ When the PC is off, the site is down. Nothing is lost.
 
    Look for "Registered tunnel connection". In Cloudflare, the tunnel should show **Healthy**.
 
-5. Open <https://gyangangaschool.bidnow>. The public site should load with its pictures and numbers.
+5. Open <https://gyangangaschool.bid>. The public site should load with its pictures and numbers.
 
 ## Part D. Lock the admin area with an email code (once)
 
 1. In **Zero Trust** go to **Access, Applications, Add an application, Self-hosted**.
-2. Name it `School admin`. Under **Public hostname** add these entries, all with domain `gyangangaschool.bidnow`:
+2. Name it `School admin`. Under **Public hostname** add these entries, all with domain `gyangangaschool.bid`:
 
    | Path |
    | --- |
@@ -102,7 +97,7 @@ When the PC is off, the site is down. Nothing is lost.
 3. Add a policy: **Allow**, rule **Emails**, and list the email addresses of you and your admins.
 4. For the login method choose **One-time PIN**. Save.
 
-Now `https://gyangangaschool.bidnow/admin` first shows a Cloudflare page asking for an email. Only listed addresses get a
+Now `https://gyangangaschool.bid/admin` first shows a Cloudflare page asking for an email. Only listed addresses get a
 6-digit code. After that the normal admin sign-in appears (email `admin@gyanganga.school` and your `ADMIN_PASSWORD`).
 
 **Test it** from a phone on mobile data (not your home Wi-Fi), in a private tab:
@@ -144,7 +139,7 @@ Now `https://gyangangaschool.bidnow/admin` first shows a Cloudflare page asking 
 | Cloudflare error **1033** | The tunnel is not running. `docker compose ps`, then `docker compose logs cloudflared` |
 | Cloudflare error **502 / 521 / 523** | The URL in the public hostname is wrong. It must be `proxy:80` with type HTTP |
 | Site opens but shows 0 students and no pictures | The backend is down. `docker compose logs backend` |
-| Cannot sign in to admin after the email code | Check `COOKIE_SECURE=true` and `PUBLIC_URL=https://gyangangaschool.bidnow` in `.env`, then `docker compose up -d` |
+| Cannot sign in to admin after the email code | Check `COOKIE_SECURE=true` and `PUBLIC_URL=https://gyangangaschool.bid` in `.env`, then `docker compose up -d` |
 | "Too many attempts" when signing in | Five wrong passwords lock that account for 15 minutes |
 | `TUNNEL_TOKEN` error when starting | The token line in `.env` is empty or has extra spaces |
 
