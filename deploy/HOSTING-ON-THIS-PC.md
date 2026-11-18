@@ -143,4 +143,27 @@ Now `https://gyangangaschool.bid/admin` first shows a Cloudflare page asking for
 | "Too many attempts" when signing in | Five wrong passwords lock that account for 15 minutes |
 | `TUNNEL_TOKEN` error when starting | The token line in `.env` is empty or has extra spaces |
 
+## Cannot sign in to the admin panel (forgotten password or wrong email)
+
+Changing `ADMIN_EMAIL` or `ADMIN_PASSWORD` in `.env` **does nothing** once the site has started. The backend creates the
+first admin account only once, on an empty database. The default sign-in email is `admin@gyanganga.school`
+(this is just a login name, not tied to your domain).
+
+To set a new password without losing any data, run this in PowerShell in the project folder (the stack must be running):
+
+```powershell
+.\deploy\reset-admin.ps1
+```
+
+It asks for a new password twice, then restarts the backend. To change the email at the same time:
+
+```powershell
+.\deploy\reset-admin.ps1 -Email principal@example.com
+```
+
+If PowerShell says scripts are blocked, run `powershell -ExecutionPolicy Bypass -File .\deploy\reset-admin.ps1`.
+
+Only if the site holds nothing you need (a brand-new install), you can instead start from scratch with
+`docker compose down -v` then `docker compose up -d --build`, which re-reads `.env`. This **erases all data**.
+
 To stop everything: `docker compose down` (data is kept). `docker compose down -v` also erases all data. Do not use it on the real site.
