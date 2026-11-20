@@ -195,13 +195,31 @@ public class DataSeeder implements ApplicationRunner {
         set("About page", "about.mission", "Mission", Enums.SettingKind.LONG,
                 "To provide quality, affordable education with strong values, balanced with sports, arts and culture, so that every child can grow in mind, body and character.",
                 "मूल्यों पर आधारित गुणवत्तापूर्ण और किफ़ायती शिक्षा देना, जिसमें खेल, कला और संस्कृति का संतुलन हो, ताकि हर बच्चा मन, शरीर और चरित्र से विकसित हो।", o++);
-        set("About page", "about.principal.name", "Principal's name (UPDATE)", Enums.SettingKind.TEXT, "Principal", "प्रधानाचार्य", o++);
+        set("About page", "about.principal.name", "Principal's name", Enums.SettingKind.TEXT, "Dr. Jaya Mishra", "डॉ. जया मिश्रा", o++);
         set("About page", "about.principal.photo", "Principal's photo", Enums.SettingKind.IMAGE, null, null, o++);
-        set("About page", "about.principal.message", "Principal's message (UPDATE)", Enums.SettingKind.LONG,
-                "Dear parents and students, education at Gyan Ganga School is about more than marks. We want every child to learn with joy, speak with confidence and live with honesty. "
-                        + "Together with our teachers and with your support, we work to give each child the best start in life.",
-                "प्रिय अभिभावकों और विद्यार्थियों, ज्ञान गंगा स्कूल में शिक्षा केवल अंकों तक सीमित नहीं है। हम चाहते हैं कि हर बच्चा आनंद से सीखे, आत्मविश्वास से बोले और ईमानदारी से जिए। "
-                        + "हमारे शिक्षकों और आपके सहयोग से हम हर बच्चे को जीवन की सर्वश्रेष्ठ शुरुआत देने का प्रयास करते हैं।", o++);
+        set("About page", "about.principal.message", "Principal's message (leave one blank line between paragraphs)", Enums.SettingKind.LONG,
+                "Dear parents and students,\n\nWelcome to Gyan Ganga School.\n\n"
+                        + "This school began in 1970 in a family home, with one teacher's belief that every child deserves a good education, whatever their background. "
+                        + "It is an honour to lead the school today, and our founder, Madhuri Mishra, remains our guide in everything we do.\n\n"
+                        + "We try to follow her path in simple, practical ways. We keep education within the reach of every family. "
+                        + "We do not turn a child away because of difficulty, whether it is a fee that is hard to pay or a lesson that is hard to learn. "
+                        + "And when a child struggles, we give another chance, because a child's future matters more than any result.\n\n"
+                        + "Education here is about more than marks. We want every child to learn with confidence, speak with honesty and grow into a kind and capable person, "
+                        + "and our teachers work towards that every day.\n\n"
+                        + "My sincere thanks to every parent for trusting us with your children, and to every teacher for the care they bring to the classroom. "
+                        + "You are always welcome to visit the school, meet our teachers and tell us how we can serve your child better.\n\n"
+                        + "With warm regards,\nDr. Jaya Mishra\nPrincipal",
+                "प्रिय अभिभावकों और विद्यार्थियों,\n\nज्ञान गंगा स्कूल में आपका स्वागत है।\n\n"
+                        + "इस विद्यालय की शुरुआत 1970 में एक परिवार के घर में, एक शिक्षिका के इस विश्वास के साथ हुई थी कि हर बच्चा अच्छी शिक्षा का हकदार है, उसकी पृष्ठभूमि चाहे जो हो। "
+                        + "आज इस विद्यालय का नेतृत्व करना मेरे लिए सम्मान की बात है, और हमारी संस्थापिका माधुरी मिश्रा आज भी हमारे हर कार्य की मार्गदर्शक हैं।\n\n"
+                        + "हम उनके बताए रास्ते पर सरल और व्यावहारिक ढंग से चलने का प्रयास करते हैं। हम शिक्षा को हर परिवार की पहुँच में रखते हैं। "
+                        + "हम किसी भी कठिनाई के कारण किसी बच्चे को लौटाते नहीं, चाहे वह शुल्क देने की कठिनाई हो या किसी पाठ को समझने की। "
+                        + "और जब कोई बच्चा पिछड़ता है, तो हम उसे दोबारा अवसर देते हैं, क्योंकि हमारे लिए बच्चे का भविष्य किसी भी परिणाम से बड़ा है।\n\n"
+                        + "यहाँ शिक्षा का अर्थ केवल अंक नहीं है। हम चाहते हैं कि हर बच्चा आत्मविश्वास से सीखे, ईमानदारी से बोले और एक संवेदनशील तथा सक्षम इंसान बने, "
+                        + "और हमारे शिक्षक प्रतिदिन इसी दिशा में कार्य करते हैं।\n\n"
+                        + "अपने बच्चों को हम पर भरोसा सौंपने के लिए हर अभिभावक के प्रति, और कक्षा में स्नेह के साथ पढ़ाने के लिए हर शिक्षक के प्रति मेरा हार्दिक आभार। "
+                        + "आप कभी भी विद्यालय आ सकते हैं, हमारे शिक्षकों से मिल सकते हैं और बता सकते हैं कि हम आपके बच्चे की बेहतर सेवा कैसे कर सकते हैं।\n\n"
+                        + "सादर,\nडॉ. जया मिश्रा\nप्रधानाचार्य", o++);
 
         // facilities
         Object[][] fac = {

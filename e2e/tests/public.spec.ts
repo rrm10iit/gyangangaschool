@@ -58,6 +58,25 @@ test.describe('public pages', () => {
     await expect(section.getByRole('heading', { level: 2 })).toContainText('विद्यालय बना दिया');
   });
 
+  test("about page shows the principal's name, photo and message in English and Hindi", async ({ page }) => {
+    await page.goto('/about');
+    const photo = page.getByRole('img', { name: 'Dr. Jaya Mishra' });
+    await photo.scrollIntoViewIfNeeded(); // the photo loads lazily, only once it is on screen
+    await expect(photo).toBeVisible();
+    await expect.poll(() => photo.evaluate((img: HTMLImageElement) => img.complete && img.naturalWidth > 0)).toBe(true);
+    await expect(page.getByRole('heading', { level: 2, name: "Principal's message" })).toBeVisible();
+    const message = page.locator('blockquote');
+    await expect(message).toContainText('Welcome to Gyan Ganga School');
+    await expect(message).toContainText('Madhuri Mishra');
+    await expect(message).toContainText('Dr. Jaya Mishra');
+
+    await page.getByRole('button', { name: 'Switch language to Hindi' }).click();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'hi');
+    await expect(page.locator('blockquote')).toContainText('ज्ञान गंगा स्कूल में आपका स्वागत है');
+    await expect(page.locator('blockquote')).toContainText('डॉ. जया मिश्रा');
+    await expect(page.getByRole('img', { name: 'डॉ. जया मिश्रा' })).toBeVisible();
+  });
+
   test('facilities list matches the school: no canteen or transport, science and computer labs', async ({ page }) => {
     await page.goto('/facilities');
     const titles = await page.getByRole('heading', { level: 2 }).allTextContents();

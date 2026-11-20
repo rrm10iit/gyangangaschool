@@ -107,6 +107,7 @@ export default async function AboutPage() {
               <Placeholder className="aspect-[4/5] w-full rounded-2xl" />
             )}
             <p className="mt-4 text-lg font-semibold">{s('about.principal.name')}</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400">{t('about.principal.role')}</p>
           </div>
           <div className="md:col-span-2">
             <SectionHeader title={t('about.principal')} />
