@@ -177,10 +177,10 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Campus life */}
+      {/* Life at school */}
       <section className="section">
         <div className="container-page">
-          <SectionHeader title={t('home.campus.title')} center />
+          <SectionHeader title={t('home.life.title')} center />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {['/videos/campus-1.mp4', '/videos/campus-2.mp4'].map((src, i) => (
               <video
@@ -189,7 +189,7 @@ export default async function HomePage() {
                 muted
                 playsInline
                 preload="none"
-                aria-label={`${t('home.campus.title')} ${i + 1}`}
+                aria-label={`${t('home.life.title')} ${i + 1}`}
                 className="aspect-video w-full rounded-2xl bg-navy-900 shadow-soft"
               >
                 <source src={src} type="video/mp4" />
