@@ -184,11 +184,18 @@ public class DataSeeder implements ApplicationRunner {
 
         // about
         set("About page", "about.history", "Our story", Enums.SettingKind.LONG,
-                "Gyan Ganga School was started in Rasulabad, Teliarganj, Prayagraj with a simple belief: every child deserves good education at a fair cost. "
-                        + "Over the years the school has grown into a trusted place of learning for families in the neighbourhood, "
-                        + "guided by its motto of honesty, knowledge and enthusiasm.",
-                "ज्ञान गंगा स्कूल की शुरुआत रसूलाबाद, तेलियरगंज, प्रयागराज में एक सरल विश्वास के साथ हुई कि हर बच्चे को उचित खर्च में अच्छी शिक्षा मिलनी चाहिए। "
-                        + "सत्यनिष्ठा, ज्ञान और उत्साह के ध्येय से प्रेरित होकर यह विद्यालय आसपास के परिवारों के लिए एक विश्वसनीय शिक्षा केंद्र बन चुका है।", o++);
+                "Gyan Ganga School began in 1970 with one teacher's promise: that every child, whatever their background, should have the chance of a good education. Its first classroom was a family home.\n\n"
+                        + "Today the school teaches children from Nursery to Class 8 at Rasulabad, Teliarganj, Prayagraj. Classes are taught in English and Hindi, "
+                        + "and alongside the syllabus children get regular English-speaking practice, singing, sports and cultural programmes.\n\n"
+                        + "What has not changed is the spirit it started with. Fees are kept within every family's reach, no child is sent away because of difficulty, "
+                        + "and a child who struggles is given another chance. Guided by its motto of honesty, knowledge and enthusiasm, "
+                        + "the school continues to follow the path set by its founder, Madhuri Mishra.",
+                "ज्ञान गंगा स्कूल की शुरुआत 1970 में एक शिक्षिका के वचन से हुई थी कि हर बच्चे को, उसकी पृष्ठभूमि चाहे जो हो, अच्छी शिक्षा का अवसर मिलना चाहिए। इसकी पहली कक्षा एक परिवार का घर थी।\n\n"
+                        + "आज यह विद्यालय रसूलाबाद, तेलियरगंज, प्रयागराज में नर्सरी से कक्षा 8 तक के बच्चों को पढ़ाता है। पढ़ाई अंग्रेज़ी और हिंदी माध्यम में होती है, "
+                        + "और पाठ्यक्रम के साथ बच्चों को नियमित अंग्रेज़ी बोलचाल का अभ्यास, गायन, खेल और सांस्कृतिक कार्यक्रमों के अवसर मिलते हैं।\n\n"
+                        + "जो बात नहीं बदली, वह है इसकी शुरुआत की भावना। शुल्क हर परिवार की पहुँच में रखा जाता है, किसी बच्चे को कठिनाई के कारण लौटाया नहीं जाता, "
+                        + "और पिछड़ने वाले बच्चे को दोबारा अवसर दिया जाता है। सत्यनिष्ठा, ज्ञान और उत्साह के ध्येय के साथ विद्यालय "
+                        + "अपनी संस्थापिका माधुरी मिश्रा के दिखाए मार्ग पर आज भी चल रहा है।", o++);
         set("About page", "about.vision", "Vision", Enums.SettingKind.LONG,
                 "To nurture confident, honest and capable young people who carry the light of knowledge into their families and society.",
                 "ऐसे आत्मविश्वासी, ईमानदार और सक्षम युवाओं का निर्माण करना जो ज्ञान का प्रकाश अपने परिवार और समाज तक पहुँचाएँ।", o++);
