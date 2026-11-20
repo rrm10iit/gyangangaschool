@@ -41,6 +41,33 @@ test.describe('public pages', () => {
     expect(names.indexOf('LKG')).toBeLessThan(names.indexOf('Class 1'));
   });
 
+  test('about page tells the founder story in English and in Hindi', async ({ page }) => {
+    await page.goto('/about');
+    const section = page.locator('section[aria-labelledby=founder-heading]');
+    await expect(section.getByRole('heading', { level: 2 })).toHaveText(/Never Turned a Child Away/);
+    await expect(section).toContainText('Madhuri Mishra');
+    await expect(section).toContainText('1970');
+    await expect(section).toContainText('2022');
+    await expect(section).toContainText('Dr. Jaya Mishra');
+    expect(await section.locator('article p').count()).toBeGreaterThanOrEqual(6);
+
+    await page.getByRole('button', { name: 'Switch language to Hindi' }).click();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'hi');
+    await expect(section).toContainText('माधुरी मिश्रा');
+    await expect(section).toContainText('डॉ. जया मिश्रा');
+    await expect(section.getByRole('heading', { level: 2 })).toContainText('विद्यालय बना दिया');
+  });
+
+  test('facilities list matches the school: no canteen or transport, science and computer labs', async ({ page }) => {
+    await page.goto('/facilities');
+    const titles = await page.getByRole('heading', { level: 2 }).allTextContents();
+    expect(titles).toContain('Science Laboratory');
+    expect(titles).toContain('Computer Lab');
+    expect(titles).not.toContain('Canteen');
+    expect(titles).not.toContain('Transport');
+    expect(titles).not.toContain('Laboratories');
+  });
+
   test('unknown page shows the 404 page', async ({ page }) => {
     const res = await page.goto('/this-page-does-not-exist');
     expect(res?.status()).toBe(404);
