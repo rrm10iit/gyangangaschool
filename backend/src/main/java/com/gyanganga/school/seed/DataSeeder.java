@@ -206,11 +206,10 @@ public class DataSeeder implements ApplicationRunner {
         // facilities
         Object[][] fac = {
                 {"Library", "पुस्तकालय", "A quiet reading space with story books, reference books and magazines for every age group.", "हर आयु वर्ग के लिए कहानी की पुस्तकों, संदर्भ ग्रंथों और पत्रिकाओं वाला शांत पठन स्थान।", "library"},
-                {"Laboratories", "प्रयोगशालाएँ", "Hands-on learning in science and computer labs that turns concepts into experiments.", "विज्ञान और कंप्यूटर प्रयोगशालाओं में प्रायोगिक शिक्षा जो अवधारणाओं को प्रयोगों में बदलती है।", "labs"},
+                {"Science Laboratory", "विज्ञान प्रयोगशाला", "Hands-on learning through simple experiments that turn the science taught in class into something children can see and try for themselves.", "सरल प्रयोगों के माध्यम से प्रायोगिक शिक्षा, जो कक्षा में पढ़ाए गए विज्ञान को बच्चों के लिए देखने और स्वयं करने योग्य बनाती है।", "labs"},
+                {"Computer Lab", "कंप्यूटर प्रयोगशाला", "Regular computer practice that builds basic computer skills for students from the early classes.", "नियमित कंप्यूटर अभ्यास, जिससे विद्यार्थियों में शुरुआती कक्षाओं से ही बुनियादी कंप्यूटर कौशल विकसित होते हैं।", "computer"},
                 {"Sports Ground", "खेल का मैदान", "Open ground for football, athletics and games that build fitness and teamwork.", "फ़ुटबॉल, एथलेटिक्स और खेलों के लिए खुला मैदान जो स्वास्थ्य और टीम भावना बढ़ाता है।", "sports"},
-                {"Transport", "परिवहन", "Safe school transport for students from nearby areas.", "आसपास के क्षेत्रों के विद्यार्थियों के लिए सुरक्षित विद्यालय परिवहन।", "transport"},
-                {"Smart Classrooms", "स्मार्ट कक्षाएँ", "Digital teaching aids that make lessons visual, interactive and easy to remember.", "डिजिटल शिक्षण साधन जो पाठों को दृश्यात्मक, संवादात्मक और यादगार बनाते हैं।", "smart"},
-                {"Canteen", "कैंटीन", "Clean, simple and healthy food and snacks for students.", "विद्यार्थियों के लिए स्वच्छ, सादा और पौष्टिक भोजन व नाश्ता।", "canteen"}
+                {"Smart Classrooms", "स्मार्ट कक्षाएँ", "Digital teaching aids that make lessons visual, interactive and easy to remember.", "डिजिटल शिक्षण साधन जो पाठों को दृश्यात्मक, संवादात्मक और यादगार बनाते हैं।", "smart"}
         };
         int fo = 1;
         for (Object[] f : fac) {

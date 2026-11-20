@@ -1,9 +1,9 @@
 import {
-  BookOpen, FlaskConical, Trophy, Bus, MonitorPlay, UtensilsCrossed, School, Image as ImageIcon, Sparkles,
+  BookOpen, FlaskConical, Trophy, Bus, MonitorPlay, UtensilsCrossed, Laptop, School, Image as ImageIcon, Sparkles,
 } from 'lucide-react';
 
 const icons: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  library: BookOpen, labs: FlaskConical, sports: Trophy, transport: Bus, smart: MonitorPlay, canteen: UtensilsCrossed,
+  library: BookOpen, labs: FlaskConical, computer: Laptop, sports: Trophy, transport: Bus, smart: MonitorPlay, canteen: UtensilsCrossed,
 };
 
 export function FacilityIcon({ name, size = 28, className }: { name?: string; size?: number; className?: string }) {

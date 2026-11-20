@@ -6,7 +6,7 @@ import { Badge } from '@/components/admin/parts';
 interface Facility { id: number; title: string; icon?: string; imageUrl?: string; displayOrder: number; published: boolean }
 
 const icons = [
-  ['library', 'Library'], ['labs', 'Laboratories'], ['sports', 'Sports'], ['transport', 'Transport'],
+  ['library', 'Library'], ['labs', 'Science laboratory'], ['computer', 'Computer lab'], ['sports', 'Sports'], ['transport', 'Transport'],
   ['smart', 'Smart classroom'], ['canteen', 'Canteen'],
 ].map(([value, label]) => ({ value, label }));
 
